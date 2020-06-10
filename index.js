@@ -20,20 +20,41 @@ function Phrase(content) {
   this.letters = function letters() {
     // 4 an even more compact method than 3
     return (this.content.match(/[a-z]/gi) || []).join("");
+    // return this.content.match(/[a-z]/gi).join("");
+
+    // 5 Exercise: introduce lettersRegex to FP method
+    /*
+    const lettersRegex = /[a-z]/gi;
+    return Array.from(this.content).filter(c => c.match(lettersRegex)).join("");
+    */
 
     // 3 functional programming
-    /*return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
+    /*
+    return Array.from(this.content).filter(c => c.match(/[a-z]/gi)).join("");
     */
 
     // 2 forEach method
-    /* let theLetters = [];
-    const letterRegex = /[a-z]/i;   // i = case insensitive
+    /*
+    let theLetters = [];
+    const lettersRegex = /[a-z]/i;   // i = case insensitive
 
     Array.from(this.content).forEach(function(character) {
-      if (character.match(letterRegex)) {
+      if (character.match(lettersRegex)) {
         theLetters.push(character);
       }
     });
+    return theLetters.join("");
+    */
+
+    // 1A for loop, duplication removed
+    /*
+    let theLetters = [];
+    for (let i=0; i<this.content.length; i++) {
+      let character = this.content.charAt(i);
+      if (character.match(/[a-zA-Z]/)) {
+          theLetters.push(character);
+      }
+    }
     return theLetters.join("");
     */
 

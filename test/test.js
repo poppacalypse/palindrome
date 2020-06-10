@@ -34,5 +34,10 @@ describe ("Phrase", function() {
       // assert(punctuatedPalindrome.letters() === "MadamImAdam");
     });
 
+    it("should return the empty string on no match", function() {
+      let noLetters = new Phrase("1234.56");
+      assert.strictEqual(noLetters.letters(), "");
+    });
+
   });
 });
